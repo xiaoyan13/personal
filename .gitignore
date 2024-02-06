@@ -1,0 +1,14 @@
+# VitePress files
+docs/.vitepress/.temp/
+docs/.vitepress/.cache/
+docs/.vitepress/dist/
+
+# Dist files
+dist/
+lib/
+
+# Node modules
+node_modules/
+
+# Log files
+*.log
