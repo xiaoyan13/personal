@@ -108,8 +108,8 @@ git reset <commit> 回退到<commit> *之后* 的那个版本点。
 
 咬文嚼字：
 
-- git revert <commit> 表示撤销commit，也就是回到<commit>的版本之前的那个版本。回退过程中，status变为reverting。如果多次修改过一个文件，就会产生冲突。这个时候我们需要进行操作，修复冲突。总之很麻烦。。revert会产生新的commit。
-- git reset <commit>表示回退到<commit>，也就是回到<commit>之后的版本。
+- `git revert <commit>` 表示撤销 commit，也就是回到 `<commit>` 的版本之前的那个版本。回退过程中，status变为reverting。如果多次修改过一个文件，就会产生冲突。这个时候我们需要进行操作，修复冲突。总之很麻烦。。revert会产生新的commit。
+- `git reset <commit>` 表示回退到 `<commit>`，也就是回到 `<commit>` 之后的版本。
 
 ## git指令（实用型）
 
