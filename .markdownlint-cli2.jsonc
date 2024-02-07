@@ -1,0 +1,12 @@
+{
+    "config": {
+        "default": true,
+        "MD028": false,
+        "MD036": false,
+        "MD013": false
+    },
+    "ignores": [
+        "!node_modules/",
+        "!.git/"
+    ]
+}
