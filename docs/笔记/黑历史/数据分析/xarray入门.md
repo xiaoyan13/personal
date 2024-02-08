@@ -8,7 +8,7 @@
 
 ## 安装
 
-```shell
+```bash
 conda install xarray
 ```
 
@@ -23,31 +23,31 @@ xarray有两大数据类型：DataArray、Dataset。
 一个带有标签的多维数组，它有如下几个重要的属性：
 
 - `values` 获取数组的具体数值
-- `dims` 获取维度的名字，如('x', 'y', 'z')
+- `dims` 获取维度的名字，如 `('x', 'y', 'z')`
 - `coords` 获取一个类似于字典的结果，里面包含各个坐标
 - `attrs` 获取原始数据的属性，比如变量的名字、单位等
 
 #### Dataset
 
-Dataset可以简单的理解为由多个DataArray组成的集合，它有如下几个重要的属性
+Dataset 可以简单的理解为由多个DataArray组成的集合，它有如下几个重要的属性
 
-- `dims` 获取维度的名字，结果类似于字典，如{'x': 6, 'y': 6, 'time': 8}
+- `dims` 获取维度的名字，结果类似于字典，如 `{'x': 6, 'y': 6, 'time': 8}`
 - `data_vars` 获取物理量的名字
 - `coords` 获取一个类似于字典的结果，里面包含各个坐标
 - `attrs` 获取原始数据的属性，比如变量的名字、单位等
 
 ## 读入数据
 
-- xarray.open_dataset()读取Dataset类型数据，即能读取多个物理量。
-- xarray.open_dataarray()读取DataArray类型数据，即只能读取单个物理量。
+- `xarray.open_dataset()`读取 Dataset 类型数据，即能读取多个物理量。
+- `xarray.open_dataarray()`读取 DataArray 类型数据，即只能读取单个物理量。
 
-如果nc文件中含有多个物理量，用`open_dataarray()`读取会报错，因此建议统一都用`open_dataset()`来读取文件。
+如果 nc 文件中含有多个物理量，用`open_dataarray()`读取会报错，因此建议统一都用`open_dataset()`来读取文件。
 
 ## 通过一个实例分析
 
 此处使用的是ERA-Interim中2018年的月数据，包含10米的径向风、纬向风和2米气温,在ECMWF注册过的都可以直接下载。
 
-```shell
+```bash
 >>>import xarray as xr
 
 # 由于数据包含了多个物理量（u10，v10，t2m），所以要用open_dataset来读取数据

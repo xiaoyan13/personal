@@ -22,7 +22,7 @@ yarn create vite my-vue-app --template vue
 
 ### Vite项目的基本文件
 
-![基本文件目录](./images/dist.jpg)
+![目录结构](./images/dist.png)
 
 - `node_modules`：项目依赖。
 - `public`：静态文件

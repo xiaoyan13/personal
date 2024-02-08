@@ -168,16 +168,6 @@
     "collapsed": true,
     "items": [
       {
-        "text": "nest学习",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "环境搭建",
-            "link": "/笔记/黑历史/nest学习/环境搭建"
-          }
-        ]
-      },
-      {
         "text": "折腾前端",
         "collapsed": true,
         "items": [
@@ -196,6 +186,16 @@
           {
             "text": "页面首屏加载流程",
             "link": "/笔记/黑历史/折腾前端/页面首屏加载流程"
+          }
+        ]
+      },
+      {
+        "text": "nest学习",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "环境搭建",
+            "link": "/笔记/黑历史/nest学习/环境搭建"
           }
         ]
       },
