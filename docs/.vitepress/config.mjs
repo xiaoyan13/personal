@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import sidebar from '../../script/test.json'
+import sidebar from './sideBarData.json'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -19,5 +19,15 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     ]
+  },
+
+  markdown: {
+    // 代码块的主题 参考 https://shiki-zh-docs.vercel.app/themes
+    theme: {
+      light: 'github-light',
+      dark: 'one-dark-pro',
+    },
+    config: (md) => {
+    }
   }
 })

@@ -39,20 +39,28 @@ async function getRes(now, url = '/笔记/', nowDir = dir) {
             });
         }
     }
+    // for (const directoryName of directorys) {
+    //     now.push({
+    //         text: directoryName,
+    //         collapsed: true,
+    //         items: await getRes([], url + directoryName + '/', nowDir + directoryName + '/')
+    //     })
+    // }
 
-    for (const directoryName of directorys) {
+    const task = directorys.map(async (directoryName) => {
         now.push({
             text: directoryName,
             collapsed: true,
             items: await getRes([], url + directoryName + '/', nowDir + directoryName + '/')
         })
-    }
+    })
+    await Promise.all(task);
     return now;
 }
 
 const res = await getRes([]);
-console.log(__dirname)
-const target = __dirname + '/test.json';
+// console.log(__dirname)
+const target = path.join(__dirname, '../docs/.vitepress/sideBarData.json');
 
 
 await fs.promises.writeFile(

@@ -8,11 +8,11 @@ hero:
   tagline: 你好，这里是一个萌新记录笔记、收集琐碎 markdown 的地方。
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始阅读
+      link: /笔记/
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 📂 查看源码 
+      link: https://github.com/xiaoyan13/
 
 features:
   - title: 原生 Markdown

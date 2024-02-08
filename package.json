@@ -4,8 +4,13 @@
     "vitepress": "^1.0.0-rc.41"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "update": "node ./scripts/getChilds.mjs",
+    "docs:dev": "npm run update && vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "install": "^0.13.0",
+    "markdown-it-mermaid": "^0.2.5"
   }
 }

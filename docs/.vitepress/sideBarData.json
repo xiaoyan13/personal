@@ -44,6 +44,61 @@
     ]
   },
   {
+    "text": "杂项",
+    "link": "/笔记/杂项/",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "excel基本操作",
+        "link": "/笔记/杂项/excel基本操作"
+      },
+      {
+        "text": "JAVA IO流",
+        "link": "/笔记/杂项/JAVA IO流"
+      },
+      {
+        "text": "java正则表达式",
+        "link": "/笔记/杂项/java正则表达式"
+      },
+      {
+        "text": "OverBreak",
+        "link": "/笔记/杂项/OverBreak"
+      },
+      {
+        "text": "Python字符串的实现",
+        "link": "/笔记/杂项/Python字符串的实现"
+      },
+      {
+        "text": "sublime快捷键",
+        "link": "/笔记/杂项/sublime快捷键"
+      },
+      {
+        "text": "不小心格式化Linux启动盘后",
+        "link": "/笔记/杂项/不小心格式化Linux启动盘后"
+      },
+      {
+        "text": "寄存器和第一个汇编程序",
+        "link": "/笔记/杂项/寄存器和第一个汇编程序"
+      },
+      {
+        "text": "操作系统简答",
+        "link": "/笔记/杂项/操作系统简答"
+      },
+      {
+        "text": "文件系统",
+        "link": "/笔记/杂项/文件系统"
+      },
+      {
+        "text": "桌面右键图标和选项的配置",
+        "link": "/笔记/杂项/桌面右键图标和选项的配置"
+      },
+      {
+        "text": "背包问题",
+        "link": "/笔记/杂项/背包问题"
+      }
+    ]
+  },
+  {
     "text": "vue",
     "collapsed": true,
     "items": [
@@ -108,60 +163,6 @@
     ]
   },
   {
-    "text": "杂项",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "excel基本操作",
-        "link": "/笔记/杂项/excel基本操作"
-      },
-      {
-        "text": "JAVA IO流",
-        "link": "/笔记/杂项/JAVA IO流"
-      },
-      {
-        "text": "java正则表达式",
-        "link": "/笔记/杂项/java正则表达式"
-      },
-      {
-        "text": "OverBreak",
-        "link": "/笔记/杂项/OverBreak"
-      },
-      {
-        "text": "Python字符串的实现",
-        "link": "/笔记/杂项/Python字符串的实现"
-      },
-      {
-        "text": "sublime快捷键",
-        "link": "/笔记/杂项/sublime快捷键"
-      },
-      {
-        "text": "不小心格式化Linux启动盘后",
-        "link": "/笔记/杂项/不小心格式化Linux启动盘后"
-      },
-      {
-        "text": "寄存器和第一个汇编程序",
-        "link": "/笔记/杂项/寄存器和第一个汇编程序"
-      },
-      {
-        "text": "操作系统简答",
-        "link": "/笔记/杂项/操作系统简答"
-      },
-      {
-        "text": "文件系统",
-        "link": "/笔记/杂项/文件系统"
-      },
-      {
-        "text": "桌面右键图标和选项的配置",
-        "link": "/笔记/杂项/桌面右键图标和选项的配置"
-      },
-      {
-        "text": "背包问题",
-        "link": "/笔记/杂项/背包问题"
-      }
-    ]
-  },
-  {
     "text": "黑历史",
     "collapsed": true,
     "items": [
@@ -170,12 +171,34 @@
         "collapsed": true,
         "items": [
           {
-            "text": "README",
-            "link": "/笔记/黑历史/nest学习/README"
-          },
-          {
             "text": "环境搭建",
             "link": "/笔记/黑历史/nest学习/环境搭建"
+          }
+        ]
+      },
+      {
+        "text": "没人理解C++",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "bitset的用法",
+            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
+          },
+          {
+            "text": "C++的右值引用和stdmove",
+            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
+          },
+          {
+            "text": "C的输入输出",
+            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
+          },
+          {
+            "text": "C结构体的一个特性",
+            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
+          },
+          {
+            "text": "GDB的使用",
+            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
           }
         ]
       },
@@ -288,32 +311,6 @@
                 "link": "/笔记/黑历史/数据分析/pandas/数据清洗与预处理"
               }
             ]
-          }
-        ]
-      },
-      {
-        "text": "没人理解C++",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "bitset的用法",
-            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
-          },
-          {
-            "text": "C++的右值引用和stdmove",
-            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
-          },
-          {
-            "text": "C的输入输出",
-            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
-          },
-          {
-            "text": "C结构体的一个特性",
-            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
-          },
-          {
-            "text": "GDB的使用",
-            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
           }
         ]
       }
