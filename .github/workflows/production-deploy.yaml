@@ -22,10 +22,10 @@ jobs:
       - name: 签出代码
         uses: actions/checkout@v4
 
-      - name: 安装 Node.js 21.2.x
-        uses: actions/setup-node@v3
+      - name: 安装 Node.js 21.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 21.2.x
+          node-version: 21.x
 
       - name: 安装依赖
         run: npm i
