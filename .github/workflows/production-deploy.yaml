@@ -28,7 +28,7 @@ jobs:
           node-version: 21.x
 
       - name: 安装依赖
-        run: npm i
+        run: npm i --frozen-lockfile
 
       - name: 构建
         run: npm run docs:build
