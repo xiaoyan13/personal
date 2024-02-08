@@ -6,7 +6,7 @@
   "scripts": {
     "update": "node ./scripts/getChilds.mjs",
     "docs:dev": "npm run update && vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "docs:build": "npm run update && vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
   "dependencies": {

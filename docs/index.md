@@ -12,7 +12,7 @@ hero:
       link: /笔记/
     - theme: alt
       text: 📂 查看源码 
-      link: https://github.com/xiaoyan13/
+      link: https://github.com/xiaoyan13/personal
 
 features:
   - title: 原生 Markdown

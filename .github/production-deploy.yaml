@@ -1,0 +1,45 @@
+name: 构建并部署到 Netlify
+
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  STORE_PATH: ''
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  build:
+    name: 构建
+    runs-on: ubuntu-22.04
+    environment:
+      name: 正式 Production
+    steps:
+      - name: 签出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node.js 21.2.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.2.x
+
+      - name: 安装依赖
+        run: npm i
+
+      - name: 构建
+        run: npm docs:build
+
+      - name: 安装 Netlify CLI
+        run: npm install -g netlify-cli
+
+      - name: 推送到 Netlify
+        timeout-minutes: 10
+        run: netlify deploy --dir docs/.vitepress/dist --prod
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+

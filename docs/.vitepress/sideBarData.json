@@ -4,12 +4,12 @@
     "link": "/笔记/迁移过程"
   },
   {
-    "text": "HTTP",
-    "link": "/笔记/HTTP"
-  },
-  {
     "text": "Service Worker",
     "link": "/笔记/Service Worker"
+  },
+  {
+    "text": "HTTP",
+    "link": "/笔记/HTTP"
   },
   {
     "text": "git",
@@ -41,11 +41,11 @@
         "text": "你所不知道的js",
         "link": "/笔记/js/你所不知道的js"
       }
-    ]
+    ],
+    "link": "/笔记/js/"
   },
   {
     "text": "杂项",
-    "link": "/笔记/杂项/",
     "collapsed": true,
     "items": [
       {
@@ -96,7 +96,8 @@
         "text": "背包问题",
         "link": "/笔记/杂项/背包问题"
       }
-    ]
+    ],
+    "link": "/笔记/杂项/"
   },
   {
     "text": "vue",
@@ -177,32 +178,6 @@
         ]
       },
       {
-        "text": "没人理解C++",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "bitset的用法",
-            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
-          },
-          {
-            "text": "C++的右值引用和stdmove",
-            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
-          },
-          {
-            "text": "C的输入输出",
-            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
-          },
-          {
-            "text": "C结构体的一个特性",
-            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
-          },
-          {
-            "text": "GDB的使用",
-            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
-          }
-        ]
-      },
-      {
         "text": "折腾前端",
         "collapsed": true,
         "items": [
@@ -271,6 +246,32 @@
           {
             "text": "梦开始的地方",
             "link": "/笔记/黑历史/折腾后端/梦开始的地方"
+          }
+        ]
+      },
+      {
+        "text": "没人理解C++",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "bitset的用法",
+            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
+          },
+          {
+            "text": "C++的右值引用和stdmove",
+            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
+          },
+          {
+            "text": "C的输入输出",
+            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
+          },
+          {
+            "text": "C结构体的一个特性",
+            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
+          },
+          {
+            "text": "GDB的使用",
+            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
           }
         ]
       },
