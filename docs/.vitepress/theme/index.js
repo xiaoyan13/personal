@@ -2,6 +2,7 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
+import SlotView from './components/SlotView.vue'
 
 /** @type {import('vitepress').Theme} */
 export default {
@@ -12,6 +13,6 @@ export default {
     })
   },
   enhanceApp({ app, router, siteData }) {
-    // ...
+    app.component('SlotView', SlotView)
   }
 }

@@ -5,9 +5,16 @@ import sidebar from './sideBarData.json'
 export default defineConfig({
   title: "xy13's personal Lib",
   description: "welcome here.",
+  head: [
+    [
+      'link', { rel: 'icon', href: '/logo.svg' }
+    ],
 
+  ],
 
   themeConfig: {
+    logo: '/MaterialSymbolsBook4.svg',
+
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
