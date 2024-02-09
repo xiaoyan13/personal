@@ -10,6 +10,6 @@
 
 <br>
 
-网站使用[`vitepress`](https://vitepress.dev/zh/)搭建，部署在`github`上，未部署CDN，访问稍慢。
+网站使用[`vitepress`](https://vitepress.dev/zh/)搭建，使用 [`github actions`](https://docs.github.com/zh/actions/learn-github-actions/understanding-github-actions)，部署在 [`netlify`](https://netlify.com)。
 
 :rocket: Powered by `vitepress` and `github pages`.
