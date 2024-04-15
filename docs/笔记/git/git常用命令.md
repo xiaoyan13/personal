@@ -94,17 +94,8 @@ git merge --no-ff <branch> # 将指定分支并入当前分支，但生成一个
 - 某一次提交的文件：工作目录中的 `<file>` 文件变成 `<commit>` 中那个文件的拷贝，并将它加入缓存区。头指针不变。
 - 某一次提交：更新工作目录中的所有文件，使得和某个特定提交中的文件一致。但不会影响到原先的工作进度，仅仅是查看。此时头指针分离。
 
-## git reset三种回退模式
 
-```bash
-git reset <commit> 回退到<commit> *之后* 的那个版本点。
-```
-
-- --soft：History -> Stage/Index
-- --mixed：History -> Working directory，默认行为。
-- --hard：History -> 垃圾桶
-
-### 和git revert的区别
+### git revert
 
 咬文嚼字：
 
