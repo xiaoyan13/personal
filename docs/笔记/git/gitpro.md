@@ -220,6 +220,13 @@ git rev-parse HEAD
 
 `HEAD~` 和 `HEAD^` 是等价的。 而区别在于后面加数字： `HEAD~2` 代表 “父提交的父提交”，同 `HEAD^^`。
 
+## git submodule
+
+> 参考：
+> [腾讯云_关于submodule](https://cloud.tencent.com/developer/article/2136829)
+> [腾讯云速查表](https://cloud.tencent.com/developer/section/1138777)
+> [官方文档](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
+
 
 ## Idea | 警语
 
