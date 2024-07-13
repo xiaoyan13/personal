@@ -8,7 +8,7 @@ django自带的缓存框架原生的支持Memcached（一个基于内存的缓�
 
 在settings.py的caches字典中配置相关参数：
 
-```django
+```python
 caches = {
     'default': { #每一个键值都是一个缓存后端，默认为default
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -53,7 +53,7 @@ Memcached需要独立安装，具体参考<https://pythondjango.cn/django/advanc
 
 与`@cache_page`缓存整个页面不同，模板缓存的颗粒度更细，可以用来缓存内容不怎么变化的 HTML 片段。具体的使用方式如下，首先加载`cache` 过滤器，然后使用模板标签语法把需要缓存的片段包围起来即可。
 
-```django
+```python
 {% load cache %}
 {% cache 500 sidebar request.user.username %}
     .. sidebar for logged in user ..

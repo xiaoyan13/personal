@@ -16,33 +16,52 @@
     "collapsed": true,
     "items": [
       {
-        "text": "gitpro",
-        "link": "/笔记/git/gitpro"
+        "text": "git的子仓库",
+        "link": "/笔记/git/git的子仓库"
       },
       {
-        "text": "Git实现原理",
-        "link": "/笔记/git/Git实现原理"
+        "text": "Git的实现原理",
+        "link": "/笔记/git/Git的实现原理"
       },
       {
-        "text": "git常用命令",
-        "link": "/笔记/git/git常用命令"
+        "text": "progit",
+        "link": "/笔记/git/progit"
+      },
+      {
+        "text": "速查表",
+        "link": "/笔记/git/速查表"
       }
     ]
   },
   {
-    "text": "js",
+    "text": "24年实习产出",
     "collapsed": true,
     "items": [
       {
-        "text": "你所不知道的js-第二部分",
-        "link": "/笔记/js/你所不知道的js-第二部分"
+        "text": "gui项目升级历程",
+        "link": "/笔记/24年实习产出/gui项目升级历程"
       },
       {
-        "text": "你所不知道的js",
-        "link": "/笔记/js/你所不知道的js"
+        "text": "TS类型推导",
+        "link": "/笔记/24年实习产出/TS类型推导"
+      },
+      {
+        "text": "vue计算属性的思考",
+        "link": "/笔记/24年实习产出/vue计算属性的思考"
+      },
+      {
+        "text": "前端工程化",
+        "link": "/笔记/24年实习产出/前端工程化"
+      },
+      {
+        "text": "模块与依赖",
+        "link": "/笔记/24年实习产出/模块与依赖"
+      },
+      {
+        "text": "组件引入问题的思考",
+        "link": "/笔记/24年实习产出/组件引入问题的思考"
       }
-    ],
-    "link": "/笔记/js/"
+    ]
   },
   {
     "text": "杂项",
@@ -98,6 +117,20 @@
       }
     ],
     "link": "/笔记/杂项/"
+  },
+  {
+    "text": "你所不知道的JS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "你所不知道的js-第二部分",
+        "link": "/笔记/你所不知道的JS/你所不知道的js-第二部分"
+      },
+      {
+        "text": "你所不知道的js",
+        "link": "/笔记/你所不知道的JS/你所不知道的js"
+      }
+    ]
   },
   {
     "text": "vue",
@@ -168,6 +201,16 @@
     "collapsed": true,
     "items": [
       {
+        "text": "nest学习",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "环境搭建",
+            "link": "/笔记/黑历史/nest学习/环境搭建"
+          }
+        ]
+      },
+      {
         "text": "折腾前端",
         "collapsed": true,
         "items": [
@@ -190,12 +233,28 @@
         ]
       },
       {
-        "text": "nest学习",
+        "text": "没人理解C++",
         "collapsed": true,
         "items": [
           {
-            "text": "环境搭建",
-            "link": "/笔记/黑历史/nest学习/环境搭建"
+            "text": "bitset的用法",
+            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
+          },
+          {
+            "text": "C++的右值引用和stdmove",
+            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
+          },
+          {
+            "text": "C的输入输出",
+            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
+          },
+          {
+            "text": "C结构体的一个特性",
+            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
+          },
+          {
+            "text": "GDB的使用",
+            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
           }
         ]
       },
@@ -246,32 +305,6 @@
           {
             "text": "梦开始的地方",
             "link": "/笔记/黑历史/折腾后端/梦开始的地方"
-          }
-        ]
-      },
-      {
-        "text": "没人理解C++",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "bitset的用法",
-            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
-          },
-          {
-            "text": "C++的右值引用和stdmove",
-            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
-          },
-          {
-            "text": "C的输入输出",
-            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
-          },
-          {
-            "text": "C结构体的一个特性",
-            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
-          },
-          {
-            "text": "GDB的使用",
-            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
           }
         ]
       },

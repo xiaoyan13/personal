@@ -1,26 +1,8 @@
-# GITPRO
+# ProGit
 
 总的来讲，git 中有很多违背直觉的命令和参数，他们的行为，毫不夸张地说，很反人类，往往需要画图才能理解。由于一些指令往往会导致不直观的行为，而 `git` 固执的保证向后兼容性，有很多古老的指令现在仍然能够生效并且仍被广泛的使用。
 
 不得不讲，它实在是不能称得上是通俗易懂、简单优雅了。但它却确实是使用最广泛的版本管理工具了。
-
-## 新增速查表
-```bash
-git commit --amend # 提交，并且和上次提交合并，用于提交完了发现少数几个文件还要修改一下，或者提交信息写错
-git restore # 同 git checkout -- <file>
-
-git reset HEAD xxx # reset 的默认行为是 --mixed, 即绿色 -> 红色 取消暂存的文件, 暂存的绿色文件回退到工作目录
-git restore --staged # 同上
-
-git branch -vv # vv 是 very verbose 的缩写 能够显示分支的上游分支
-git push --set-upstream origin your_branch:upstream_branch # 在 push 的时候设置上游
-git push -u origin your_branch:upstream_branch # 同上
-git branch -u origin/upstream_branch your_branch # -u 是指定上游分支的意思
-git branch -d # 删除分支
-
-git stash -u # 默认不会暂存未追踪的文件，加上 -u 会加上，很有用
-git stash apply --index # 暂存的暂存区文件在 apply 时默认不会自动重新加入暂存区(变绿)，加上 index 将会尝试重新加入缓存区
-```
 
 ## 初次学习顺序记录
 
@@ -81,22 +63,41 @@ git pull
 git stash
 ```
 
-## 边角知识
+## git 常见术语与解读
+
+### Untracked files
+
+这个玩意比较特殊，我们第一次 touch 的文件属于未追踪文件，此时版本库和工作区其实已经有差异了，但是 add 是为 0 的，此时 git stash 会显示没有可以缓存的差异。因为它没有追踪到。只有在第一次 add 后才会被追踪。（但如果是修改一个文件或者删除一个文件，由于该文件已经被追踪了，所以 add 可以捕捉其差异）。
+
+
+### commit提交点不能理解为一条笔直的时间线
+
+相对于提交点组成一条时间线，把提交点理解为一个容器中的某个点更合理一些，即使这些 commit 点在时间上是有先后顺序的。而分支点则是这一堆提交点中标识整个容器头部的标识点，合并分支操作就是合并两个容器，把两个容器中的 commit 点聚在一起，前提是不产生冲突。
+
+### 分离HEAD
+
+其实就是暂时跳转到其他 commit 历史点上。HEAD指向“实际”的工作目录，所以分离HEAD的时候Git看起来就是一个只读模式，做的任何操作都不会影响仓库的任何内容。
+
+### git merge 的机制
+
+`git merge` 命令允许你将 `git branch` 创建的多条分支合并成一个。
 
 ```bash
-git tag
-git hock
-调试
-第三方 IDE/editor 集成的git
-各种各样的参数
-...
+git merge <branch> #将指定分支并入当前分支。
+git merge --no-ff <branch> # 将指定分支并入当前分支，但生成一个合并提交（即使是快速向前合并）。这可以用来记录仓库中发生的所有合并。
 ```
 
-## git checkout
+#### 合并机制
+
+当当前分支顶端到目标分支路径是线性之时，我们可以采取 **快速向前合并** 。这种不会产生新的历史记录。
+
+如果分支已经分叉了，那么就无法进行快速向前合并。当和目标分支之间的路径不是线性之时，Git 只能执行 **三路合并** 。这种类似于提交了一个新的commit点，需要产生新的历史记录。
+
+### git checkout
 
 `git checkout` 命令可以用于三种不同的实体：文件，`commit` 点，以及分支。本质上，就是两个不同 `commit` 点的对比。
 
-### 用于分支
+#### 用于分支
 
 `check out` 的直译是"查看"的意思，然而，当前的红色变更会被应用到 checkout 的目标分支中，这也就意味着 checkout **并不是** 一个只读的操作。
 
@@ -104,7 +105,7 @@ git hock
 
 我们的工作区只有一份，我们进行 checkout 的过程，实际上就是在尝试，在 checkout 的目标分支上，应用当前工作区的红色更改：我们在尝试修改目标分支。这段话十分的绕口，但它却是 checkout 的本质。
 
-### 用于文件（夹）
+#### 用于文件（夹）
 
 用于文件的特征是加了 `--`：
 
@@ -125,7 +126,7 @@ git checkout [<commit>] -- <file>
 
 值得注意的是，这里会产生一个混乱。当使用 `git checkout` 命令将文件切换到某个提交点的版本之前，该文件已经在暂存区（绿色），那么在 `checkout` 后，暂存区的修改也会随之变化，这会很迷惑人，而且往往不是我们想要的行为。
 
-### 用于 commit 点
+#### 用于 commit 点
 
 可以把这种情况，等价于：
 
@@ -135,9 +136,100 @@ git checkout <commit> -- ./
 
 就是用于文件的情况。
 
+
+### git revert
+
+咬文嚼字：
+
+- `git revert <commit>` 表示撤销 commit，也就是回到 `<commit>` 的版本之前的那个版本。回退过程中，status变为reverting。如果多次修改过一个文件，就会产生冲突。这个时候我们需要进行操作，修复冲突。总之很麻烦。。revert会产生新的commit。
+- `git reset <commit>` 表示回退到 `<commit>`，也就是回到 `<commit>` 之后的版本。
+
+---
+
+```txt
+分支的概念：分支其实就是不同的线，每条线上记录了各自的修改（commit）记录。
+分支常见操作：
+创建分支/切换分支/合并分支/删除分支
+
+分支合并冲突的产生与解决
+产生的原因向军的视频中阐述的很清楚：我们的a和b分支都是从主分支的某一个提交点（称作点HD）分出来的，各自操作完后都想合并到主分支，但他们都修改了某个文件f。我们把a合并到主分支后，再试图把b分支合并到主分支，那个修改的文件f的提交点就会产生冲突：当我们尝试把b分支合并到主分支的时候，git从HD点开始不断并入所有的commit提交点，以合并所有的修改，但是遇到了文件f的修改，发现产生了冲突：它之前已经有一个提交点了。这个时候git会把没产生冲突的commit的点全部并入之后进入merging状态。
+解决方法就是手动去操作。git在合并产生冲突的时候会进入merging状态，此时我们可以查阅冲突的文件并修改，进行add和commit，直到merging状态的工作区全变干净，这时就表明已经完成合并，自动退出merging状态。
+
+分支管理
+git branch --merged # 查看哪些分支已经合并到当前分支过了
+git branch --no-merged # 查看哪些分支还没有合并到当前分支过
+git branch -d # 删除分支。只能删除已经进行合并操作过的分支。如果要对没有合并过的分支进行删除，使用-D。
+
+```
+
+### git stash: 临时储存区
+
+git要求我们在checkout切换分支的时候必须不会产生冲突。
+核心：add（版本库与工作区差异的记录区）有且只有一个。add 存的是当前 commit 点与工作区所对比的“差异信息”。如果我们切换分支，git会切换commit点，将差异信息+该commit点变为工作区（这有点奇怪，但这样保持了add区的内容保持不变，小学加减法），也就是版本库和工作区的差异不变。如果可行就可行，如果不可行就产生冲突了。效果上等价于“切换分支并沿用之前的add记录”。
+
+如果冲突，可以用暂存来copy一份当前的add差异记录，暂存在当前的分支上，让add==0，到时候恢复。（我感觉这个很nice，无论产不产生冲突都先暂存一下比较科学合理）。当然，对add=0的差异暂存没意义。
+
+```bash
+# 命令：
+git stash # 暂存当前的工作进度
+git stash apply ... # 恢复当前的工作进度，默认恢复最近的
+git stash list # 列出所有被暂存的进度
+git stash drop ... # 删除暂存
+```
+
+### Tag标签
+
+标签是项目阶段性的发布版本，不是随便就打的。github等网站会自动的识别git项目打的标签并列出来对应的项目包。
+
+```bash
+git tag # 查看当前仓库的标签
+git show 'tag-name' # 查看标签对应的提交信息 
+
+git tag 'tag-name' -m "comments" <commit> # 创建轻量标签
+git tag -a 'tag-name' <commit> # 创建附注标签
+
+git push origin 'tag-name' # 推送单个标签
+git push --tags # 推送所有标签 
+git push --follow-tag # 推送标签 + commit 记录
+
+git checkout -b new_branch 'tag-name' # 根据标签提交记录创建一个新分支
+```
+
+### 打包项目为 zip
+
+```bash
+git archive master --prefix='xxx/' --forma=zip > xxx.zip
+```
+
+### git rebase
+
+用于管理commit记录，通过改变commit的备注和修改合并commit，让commit更合理和易懂。所以它可以优化分支合并。我们通常在merge之前要对当前分支进行rebase操作，优化好所有的commit点，然后再一次rebase到master（这效果上等效于merge，只是合并成了一条线），最后解决完所有的冲突后，由master分支的主人接收该分支，并快速向前合并到master上。
+
+#### git rebase和git merge的区别
+
+二者都可以用于合并分支。
+
+本质上，git merge用于把两个分支进行合并操作：它是直接的合并，也就是直接把两个分支的commit点混在一起。这在log日志中的表现形式便是一个merge记录，里面两条线，最后合并在一起。如果合并的过程可以看做“快速向前合并”，则不会产生log日志。
+
+git rebase可以用于管理commit点：
+
+```bash
+git rebase -i [startPonit] [endPoint]
+```
+
+关于这条指令可以参考[这里](https://juejin.cn/post/7035512330662182920)。
+
+也可以用于合并分支（本质上还是管理commit点，就是把commit合并成一条线）：
+
+```bash
+git rebase master
+```
+
+这条指令，可以理解为先把当前分支的commit点隐藏起来（清空commit容器），然后把master的commit全部载入当前容器中，再把之前隐藏的commit按照时间线的顺序一个个重新装载到该容器里（这个过程可能会产生冲突，所以rebase过程需要解决冲突，所以我们rebase之前，当前的commit线路最好一定是非常干净整洁的，要不然会产生很多冲突，比如都修改了a文件，但当前分支的a文件被commit了两次，就需要解决两次冲突。）。这在log日志中就不会形成两条线了，而是一条完整的继承自master的线。**效果上就是把分支点往后移动到master了**。
+
 ### git reset
 
-对于最基本的用法，分支回滚到之前的某个提交上：
+对于最基本的用法，分支回滚到之前的某个提交上。下面的`绿`和`红`虽然看起来排版并不好看，但却很直观的解释了 `reset` 的原理：
 
 执行前：|目标提交|其他提交|....|绿|红。
 
@@ -181,7 +273,8 @@ git reset --hard last_commit_point # 放弃当前的所有修改，包括红色�
 ```
 这算是 `reset` 唯一一个有用而且不遭到麻烦的"奇技淫巧"了。
 
-## .gitignore
+
+### .gitignore
 
 `.gitignore` 文件只影响未跟踪的文件，也就是说，如果某个文件已经被纳入版本控制系统，那么就算在`.gitignore` 文件中规定了忽略它，它仍然会被版本库追踪。所以，如果一个文件还在 `git` 中，那么在此之后创建 `.gitignore` 文件并提交并不会影响 `git` 对它的追踪：此后下游对该版本库的 `pull\push` 操作，在版本库交接的时候都不会忽略该文件，因为它还在被 `git` 追踪。
 
@@ -211,7 +304,7 @@ git add . # 使用 git add . 把这个修改记录加入暂存区并 commit
 git c -m "xx 文件之前被加到 .gitignore, 该文件现在被删除不再追踪，但我在这之前修改过它, 这个 commit 点用于记录之前对这个文件的修改。"
 ```
 
-## 指针指向
+### 指针指向
 
 ```bash
 # 查看头指针指向的提交的哈希值：
@@ -219,13 +312,6 @@ git rev-parse HEAD
 ```
 
 `HEAD~` 和 `HEAD^` 是等价的。 而区别在于后面加数字： `HEAD~2` 代表 “父提交的父提交”，同 `HEAD^^`。
-
-## git submodule
-
-> 参考：
-> [腾讯云_关于submodule](https://cloud.tencent.com/developer/article/2136829)
-> [腾讯云速查表](https://cloud.tencent.com/developer/section/1138777)
-> [官方文档](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%AD%90%E6%A8%A1%E5%9D%97)
 
 
 ## Idea | 警语
@@ -254,4 +340,21 @@ git mv README.MD README
 # equals to
 mv README.MD README # 现在，README.MD被删除，新建README，并且README文件内容和MD文件一样
 git add . # 提交操作，自动识别为rename操作。
+```
+
+## 边角知识
+
+- git hock
+- 调试 git
+- 第三方 IDE/editor 集成 git
+- ...
+
+### 关于master和main
+
+很多设备上的 `git` 版本仍然新建仓库以 `master` 作为主分支名。就现在 `master` 和 `main` 一直混在一起的现状而言，新建一个仓库直接手动把 `master` 给删掉，是一个好习惯。
+
+```bash
+git branch -M main //把当前分支改名为main
+# 设置上游分支：
+git branch --set-upstream-to=origin/<远程分支> <本地分支>
 ```
