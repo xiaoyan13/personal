@@ -12,6 +12,28 @@
     "link": "/笔记/HTTP"
   },
   {
+    "text": "git",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "Git子仓库",
+        "link": "/笔记/git/Git子仓库"
+      },
+      {
+        "text": "Git的实现原理",
+        "link": "/笔记/git/Git的实现原理"
+      },
+      {
+        "text": "progit",
+        "link": "/笔记/git/progit"
+      },
+      {
+        "text": "速查表",
+        "link": "/笔记/git/速查表"
+      }
+    ]
+  },
+  {
     "text": "24年实习产出",
     "collapsed": true,
     "items": [
@@ -41,28 +63,6 @@
       }
     ],
     "link": "/笔记/24年实习产出/"
-  },
-  {
-    "text": "git",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "git的子仓库",
-        "link": "/笔记/git/git的子仓库"
-      },
-      {
-        "text": "Git的实现原理",
-        "link": "/笔记/git/Git的实现原理"
-      },
-      {
-        "text": "progit",
-        "link": "/笔记/git/progit"
-      },
-      {
-        "text": "速查表",
-        "link": "/笔记/git/速查表"
-      }
-    ]
   },
   {
     "text": "你所不知道的JS",

@@ -56,7 +56,7 @@ git rm --cached projectfolder
 git submodule add url_to_repo projectfolder
 ```
 
-成功把仓库变成了子仓库，当我兴冲冲的 push 上去的时候，才发现，远程的那个文件夹还是连接，只不过变成了这个样子：
+成功把仓库变成了子仓库。这时，远程的那个文件夹还是连接，只不过变成了这个样子：
 
 ![submodule](./images/submodule.png)
 
