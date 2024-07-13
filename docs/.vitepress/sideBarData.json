@@ -12,28 +12,6 @@
     "link": "/笔记/HTTP"
   },
   {
-    "text": "git",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "git的子仓库",
-        "link": "/笔记/git/git的子仓库"
-      },
-      {
-        "text": "Git的实现原理",
-        "link": "/笔记/git/Git的实现原理"
-      },
-      {
-        "text": "progit",
-        "link": "/笔记/git/progit"
-      },
-      {
-        "text": "速查表",
-        "link": "/笔记/git/速查表"
-      }
-    ]
-  },
-  {
     "text": "24年实习产出",
     "collapsed": true,
     "items": [
@@ -61,7 +39,45 @@
         "text": "组件引入问题的思考",
         "link": "/笔记/24年实习产出/组件引入问题的思考"
       }
+    ],
+    "link": "/笔记/24年实习产出/"
+  },
+  {
+    "text": "git",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "git的子仓库",
+        "link": "/笔记/git/git的子仓库"
+      },
+      {
+        "text": "Git的实现原理",
+        "link": "/笔记/git/Git的实现原理"
+      },
+      {
+        "text": "progit",
+        "link": "/笔记/git/progit"
+      },
+      {
+        "text": "速查表",
+        "link": "/笔记/git/速查表"
+      }
     ]
+  },
+  {
+    "text": "你所不知道的JS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "你所不知道的js-第二部分",
+        "link": "/笔记/你所不知道的JS/你所不知道的js-第二部分"
+      },
+      {
+        "text": "你所不知道的js",
+        "link": "/笔记/你所不知道的JS/你所不知道的js"
+      }
+    ],
+    "link": "/笔记/你所不知道的JS/"
   },
   {
     "text": "杂项",
@@ -117,20 +133,6 @@
       }
     ],
     "link": "/笔记/杂项/"
-  },
-  {
-    "text": "你所不知道的JS",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "你所不知道的js-第二部分",
-        "link": "/笔记/你所不知道的JS/你所不知道的js-第二部分"
-      },
-      {
-        "text": "你所不知道的js",
-        "link": "/笔记/你所不知道的JS/你所不知道的js"
-      }
-    ]
   },
   {
     "text": "vue",
@@ -233,32 +235,6 @@
         ]
       },
       {
-        "text": "没人理解C++",
-        "collapsed": true,
-        "items": [
-          {
-            "text": "bitset的用法",
-            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
-          },
-          {
-            "text": "C++的右值引用和stdmove",
-            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
-          },
-          {
-            "text": "C的输入输出",
-            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
-          },
-          {
-            "text": "C结构体的一个特性",
-            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
-          },
-          {
-            "text": "GDB的使用",
-            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
-          }
-        ]
-      },
-      {
         "text": "折腾后端",
         "collapsed": true,
         "items": [
@@ -309,6 +285,32 @@
         ]
       },
       {
+        "text": "没人理解C++",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "bitset的用法",
+            "link": "/笔记/黑历史/没人理解C++/bitset的用法"
+          },
+          {
+            "text": "C++的右值引用和stdmove",
+            "link": "/笔记/黑历史/没人理解C++/C++的右值引用和stdmove"
+          },
+          {
+            "text": "C的输入输出",
+            "link": "/笔记/黑历史/没人理解C++/C的输入输出"
+          },
+          {
+            "text": "C结构体的一个特性",
+            "link": "/笔记/黑历史/没人理解C++/C结构体的一个特性"
+          },
+          {
+            "text": "GDB的使用",
+            "link": "/笔记/黑历史/没人理解C++/GDB的使用"
+          }
+        ]
+      },
+      {
         "text": "数据分析",
         "collapsed": true,
         "items": [
@@ -348,6 +350,7 @@
           }
         ]
       }
-    ]
+    ],
+    "link": "/笔记/黑历史/"
   }
 ]

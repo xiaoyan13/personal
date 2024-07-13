@@ -15,8 +15,9 @@ const dir = path.join(__dirname, '../docs/笔记/');
 // console.log(dir)
 
 // 需要 link 字段的目录：{ text: string, items: [], link: string }
-function needLink(text) {
-    return text === "杂项" || text === "js"
+function needLink(nowPath) {
+    const fullpath = path.join(__dirname, '../docs', nowPath, 'index.md')
+    return fs.existsSync(fullpath)
 }
 
 // now: 现在构建的目录数组 []
@@ -51,7 +52,7 @@ async function getRes(now, url = '/笔记/', nowDir = dir) {
             collapsed: true,
             items: await getRes([], url + directoryName + '/', nowDir + directoryName + '/')
         }
-        if (needLink(tmpObj.text)) {
+        if (needLink(url + directoryName)) {
             tmpObj.link = url + directoryName + '/';
         }
 

@@ -6,9 +6,9 @@
   "scripts": {
     "update": "node ./scripts/getChilds.mjs",
     "lint": "markdownlint-cli2 --fixed \"**/*.md\" \"#node_modules/\"",
-    "docs:dev": "npm run update && vitepress dev docs",
-    "docs:build": "npm run update && vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "dev": "npm run update && vitepress dev docs",
+    "build": "npm run update && vitepress build docs",
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
     "install": "^0.13.0",
