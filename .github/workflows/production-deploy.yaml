@@ -31,7 +31,7 @@ jobs:
         run: npm i --frozen-lockfile
 
       - name: 构建
-        run: npm run docs:build
+        run: npm run build
 
       - name: 安装 Netlify CLI
         run: npm install -g netlify-cli
