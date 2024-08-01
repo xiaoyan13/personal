@@ -56,7 +56,7 @@ if (import.meta.hot) {
 
 如果你在一个模块中调用了这个函数，那么 `HMR boundary` 就产生了，以它为入口（注意，是入口，不是根节点）。如果这样的一个模块还导入了其他的模块，那么自然就可以用它作为入口，来构建一个依赖图。这整个图就位于了所谓的 "HMR boundary"(HMR 边界) 中。当没有导入的模块的时候，`HMR 边界` 内部就只有一个节点，就是它自己。
 
-![alt text](image2.png)
+![alt text](images/image2.png)
 
 对于剩下的 2 个术语，它们对应了 `accept` 的两种形式的重载：
 
@@ -165,7 +165,7 @@ import.meta.hot.accept((module) => {
 
 下面这张图，更全面的描述了热更新从产生、触发到作用的全过程：
 
-![热更新的流程](image.png)
+![热更新的流程](images/image3.png)
 
 让我们一步步的分析这张图吧。
 
@@ -225,7 +225,7 @@ function globalCssPlugin() {
 
 最终的 `module` 数组将会经历热更新的核心步骤：HMR propagation(HMR 广播)。我们将使用一个例子来演示这个过程。
 
-![alt text](image2.png)
+![alt text](images/image2.png)
 
 #### 场景1
 
