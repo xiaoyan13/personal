@@ -4,14 +4,6 @@
     "link": "/笔记/迁移过程"
   },
   {
-    "text": "Service Worker",
-    "link": "/笔记/Service Worker"
-  },
-  {
-    "text": "HTTP",
-    "link": "/笔记/HTTP"
-  },
-  {
     "text": "git",
     "collapsed": true,
     "items": [
@@ -42,24 +34,36 @@
         "link": "/笔记/24年实习产出/gui项目升级历程"
       },
       {
-        "text": "TS类型推导",
-        "link": "/笔记/24年实习产出/TS类型推导"
+        "text": "JS的模块与依赖",
+        "link": "/笔记/24年实习产出/JS的模块与依赖"
+      },
+      {
+        "text": "TS的类型系统",
+        "link": "/笔记/24年实习产出/TS的类型系统"
+      },
+      {
+        "text": "vite的热替换原理",
+        "link": "/笔记/24年实习产出/vite的热替换原理"
       },
       {
         "text": "vue计算属性的思考",
         "link": "/笔记/24年实习产出/vue计算属性的思考"
       },
       {
+        "text": "分享PPT",
+        "link": "/笔记/24年实习产出/分享PPT"
+      },
+      {
         "text": "前端工程化",
         "link": "/笔记/24年实习产出/前端工程化"
       },
       {
-        "text": "模块与依赖",
-        "link": "/笔记/24年实习产出/模块与依赖"
-      },
-      {
         "text": "组件引入问题的思考",
         "link": "/笔记/24年实习产出/组件引入问题的思考"
+      },
+      {
+        "text": "页面的渲染模式",
+        "link": "/笔记/24年实习产出/页面的渲染模式"
       }
     ],
     "link": "/笔记/24年实习产出/"
@@ -78,6 +82,20 @@
       }
     ],
     "link": "/笔记/你所不知道的JS/"
+  },
+  {
+    "text": "网络",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "HTTP",
+        "link": "/笔记/网络/HTTP"
+      },
+      {
+        "text": "Service Worker",
+        "link": "/笔记/网络/Service Worker"
+      }
+    ]
   },
   {
     "text": "杂项",
