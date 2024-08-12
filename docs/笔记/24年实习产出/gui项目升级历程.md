@@ -92,6 +92,17 @@ vite/vue 是属于代码环境、框架的概念，为我们提供一个写代�
 
 - 解决 vscode 爆红：项目能跑，但是报红，tsconfig 和 eslint 代码检查的锅。（这里需要注意的是自己的 vscode 的 ts 和 eslint 的配置，建议配置为使用工作区的 `typescript`，建议禁用工作区 `prettier` 等代码检查工具而仅启用 `eslint`。）
 
+## 升级前后对比
+
+在升级前，冷启动的首屏渲染需要 130 秒：
+
+![alt text](./images/image-0.png)
+
+![alt text](./images/image-1.png)
+
+可以看到升级后的速度提升是很可观的，冷启动首屏渲染的时间来到了 10 秒内：
+
+![alt text](./images/image-2.png)
 ## 其他 & 总结
 
 - vue 也升级到了最新版本，可以使用一些新特性了，移除了弃用的语法
