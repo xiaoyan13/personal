@@ -15,10 +15,10 @@ const targetFolder = path.resolve(__dirname, "../docs/.vitepress/dist");
 
 try {
   // 复制文件
-  await fs.copyFile(file1, targetFolder);
+  await fs.copyFile(file1, path.resolve(targetFolder, path.basename(file1)));
   console.log(`文件 ${file1} 已复制到 ${targetFolder}`);
 
-  await fs.copyFile(file2, targetFolder);
+  await fs.copyFile(file2, path.resolve(targetFolder, path.basename(file2)));
   console.log(`文件 ${file2} 已复制到 ${targetFolder}`);
 } catch (error) {
   console.error(`发生错误: ${error.message}`);
