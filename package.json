@@ -7,7 +7,7 @@
     "update": "node ./scripts/getChilds.mjs",
     "lint": "markdownlint-cli2 --fixed \"**/*.md\" \"#node_modules/\"",
     "dev": "npm run update && vitepress dev docs",
-    "build": "npm run update && vitepress build docs",
+    "build": "npm run update && vitepress build docs && node ./scripts/postProcessing.mjs",
     "preview": "vitepress preview docs"
   },
   "dependencies": {
