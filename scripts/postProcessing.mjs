@@ -18,7 +18,7 @@ try {
   await fs.copyFile(file1, path.resolve(targetFolder, path.basename(file1)));
 
   await fs.copyFile(file2, path.resolve(targetFolder, path.basename(file2)));
-  console.log(`文件已复制到 ${targetFolder}`);
+  console.log(`_redirects and google html file have been copied to ${targetFolder}.`);
 } catch (error) {
   console.error(`发生错误: ${error.message}`);
 }
