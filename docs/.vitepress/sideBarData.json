@@ -69,6 +69,91 @@
     ]
   },
   {
+    "text": "你所不知道的JS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "你所不知道的js-Part2",
+        "link": "/笔记/你所不知道的JS/你所不知道的js-Part2"
+      },
+      {
+        "text": "你所不知道的js",
+        "link": "/笔记/你所不知道的JS/你所不知道的js"
+      }
+    ],
+    "link": "/笔记/你所不知道的JS/"
+  },
+  {
+    "text": "AI-beginning",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "1_intro",
+        "link": "/笔记/AI-beginning/1_intro"
+      },
+      {
+        "text": "2_symbolic",
+        "link": "/笔记/AI-beginning/2_symbolic"
+      },
+      {
+        "text": "3_0_neural_network",
+        "link": "/笔记/AI-beginning/3_0_neural_network"
+      },
+      {
+        "text": "3_1_perceptron",
+        "link": "/笔记/AI-beginning/3_1_perceptron"
+      },
+      {
+        "text": "3_2_multi_layered_perceptron",
+        "link": "/笔记/AI-beginning/3_2_multi_layered_perceptron"
+      },
+      {
+        "text": "3_3_pytorch",
+        "link": "/笔记/AI-beginning/3_3_pytorch"
+      },
+      {
+        "text": "others",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "logistic_regression",
+            "link": "/笔记/AI-beginning/others/logistic_regression"
+          }
+        ]
+      }
+    ],
+    "link": "/笔记/AI-beginning/"
+  },
+  {
+    "text": "OS",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "excerpt",
+        "link": "/笔记/OS/excerpt"
+      },
+      {
+        "text": "makefile",
+        "link": "/笔记/OS/makefile"
+      },
+      {
+        "text": "riscv-courses",
+        "link": "/笔记/OS/riscv-courses"
+      },
+      {
+        "text": "bash",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "bashREPL",
+            "link": "/笔记/OS/bash/bashREPL"
+          }
+        ],
+        "link": "/笔记/OS/bash/"
+      }
+    ]
+  },
+  {
     "text": "杂项",
     "collapsed": true,
     "items": [
@@ -119,102 +204,81 @@
       {
         "text": "背包问题",
         "link": "/笔记/杂项/背包问题"
-      }
-    ],
-    "link": "/笔记/杂项/"
-  },
-  {
-    "text": "你所不知道的JS",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "你所不知道的js-第二部分",
-        "link": "/笔记/你所不知道的JS/你所不知道的js-第二部分"
       },
-      {
-        "text": "你所不知道的js",
-        "link": "/笔记/你所不知道的JS/你所不知道的js"
-      }
-    ],
-    "link": "/笔记/你所不知道的JS/"
-  },
-  {
-    "text": "网络",
-    "collapsed": true,
-    "items": [
-      {
-        "text": "HTTP",
-        "link": "/笔记/网络/HTTP"
-      },
-      {
-        "text": "Service Worker",
-        "link": "/笔记/网络/Service Worker"
-      }
-    ]
-  },
-  {
-    "text": "vue",
-    "collapsed": true,
-    "items": [
       {
         "text": "初学vue的旧文章",
         "collapsed": true,
         "items": [
           {
             "text": "prop与emit",
-            "link": "/笔记/vue/初学vue的旧文章/prop与emit"
+            "link": "/笔记/杂项/初学vue的旧文章/prop与emit"
           },
           {
             "text": "README",
-            "link": "/笔记/vue/初学vue的旧文章/README"
+            "link": "/笔记/杂项/初学vue的旧文章/README"
           },
           {
             "text": "vite搭建",
-            "link": "/笔记/vue/初学vue的旧文章/vite搭建"
+            "link": "/笔记/杂项/初学vue的旧文章/vite搭建"
           },
           {
             "text": "Vue-Router总结",
-            "link": "/笔记/vue/初学vue的旧文章/Vue-Router总结"
+            "link": "/笔记/杂项/初学vue的旧文章/Vue-Router总结"
           },
           {
             "text": "Vue概述",
-            "link": "/笔记/vue/初学vue的旧文章/Vue概述"
+            "link": "/笔记/杂项/初学vue的旧文章/Vue概述"
           },
           {
             "text": "Vue的基本使用",
-            "link": "/笔记/vue/初学vue的旧文章/Vue的基本使用"
+            "link": "/笔记/杂项/初学vue的旧文章/Vue的基本使用"
           },
           {
             "text": "vue组件",
-            "link": "/笔记/vue/初学vue的旧文章/vue组件"
+            "link": "/笔记/杂项/初学vue的旧文章/vue组件"
           },
           {
             "text": "依赖注入与动态组件",
-            "link": "/笔记/vue/初学vue的旧文章/依赖注入与动态组件"
+            "link": "/笔记/杂项/初学vue的旧文章/依赖注入与动态组件"
           },
           {
             "text": "全局组件与局部组件",
-            "link": "/笔记/vue/初学vue的旧文章/全局组件与局部组件"
+            "link": "/笔记/杂项/初学vue的旧文章/全局组件与局部组件"
           },
           {
             "text": "插槽slot",
-            "link": "/笔记/vue/初学vue的旧文章/插槽slot"
+            "link": "/笔记/杂项/初学vue的旧文章/插槽slot"
           },
           {
             "text": "环境配置",
-            "link": "/笔记/vue/初学vue的旧文章/环境配置"
+            "link": "/笔记/杂项/初学vue的旧文章/环境配置"
           },
           {
             "text": "组件样式基础",
-            "link": "/笔记/vue/初学vue的旧文章/组件样式基础"
+            "link": "/笔记/杂项/初学vue的旧文章/组件样式基础"
           },
           {
             "text": "组合式API基础",
-            "link": "/笔记/vue/初学vue的旧文章/组合式API基础"
+            "link": "/笔记/杂项/初学vue的旧文章/组合式API基础"
+          }
+        ]
+      },
+      {
+        "text": "网络",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "HTTP",
+            "link": "/笔记/杂项/网络/HTTP"
+          },
+          {
+            "text": "Service Worker",
+            "link": "/笔记/杂项/网络/Service Worker"
           }
         ]
       }
-    ]
+    ],
+    "link": "/笔记/杂项/"
   },
   {
     "text": "黑历史",

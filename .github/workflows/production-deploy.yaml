@@ -28,7 +28,7 @@ jobs:
           node-version: 21.x
 
       - name: 安装依赖
-        run: npm i --frozen-lockfile
+        run: npm config set registry https://registry.npmjs.org && npm i --frozen-lockfile
 
       - name: 构建
         run: npm run build
