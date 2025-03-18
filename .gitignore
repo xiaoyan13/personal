@@ -1,6 +1,6 @@
 # VitePress files
 docs/.vitepress/.temp/
-docs/.vitepress/.cache/
+docs/.vitepress/cache/
 docs/.vitepress/dist/
 
 # Dist files
@@ -15,3 +15,6 @@ node_modules/
 
 # vscode
 .vscode/
+
+# json auto-generated
+docs/.vitepress/sideBarData.json
