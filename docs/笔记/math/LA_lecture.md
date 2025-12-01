@@ -65,4 +65,6 @@
 
 ## Lecture 9
 
-- 
+- 投影矩阵的互补性质：P 与 I-P 的列空间与零空间；充要条件 P<sup>2</sup> = P；P 用基坐标矩阵的表示形式
+- A<sup>k</sup> 的零空间与列空间变化；指标(`index`)与幂零矩阵
+- 核零分解(Core-Nilpotent Decomposition) 与伪逆

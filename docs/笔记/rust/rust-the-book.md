@@ -9,9 +9,9 @@ Rust 本身有一定的门槛，有一定的 C 语言基础更容易学习它。
 总共 21 章。
 
 - Error handling (9)
-- (performence) test (11)
-- project manage (7; 14)
+- performence / test (11)
+- project management (7; 14) (这部分写的太少, 建议参考 [cargo reference](https://doc.rust-lang.org/cargo/reference/workspaces.html))
 - trait and generics (10; 18.2; 20)
-- **language core: ownership (4), scope, lifetime (10.3), (de)reference, smart pointer(15)**
+- **core concept: ownership (4), scope, lifetime (10.3), (de)reference, smart pointer(15)**
 - std library: collections (8), multi-threading (16), asynchoronous programming (17)
-- functional (13) / OO (18)
+- functional programming(13) / OO (18)
