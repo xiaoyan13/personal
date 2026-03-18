@@ -1,8 +1,14 @@
 # BASH
 
+[参考1](https://guide.bash.academy/)
+
+[参考2](https://wangdoc.com/bash/)
+
+bash 是一种 lax interpreter, 有太多的 pitfalls, 所以它本身只适合物尽其用得用来编写简单的脚本，并不适合用来做太多事：当做一件事情的 bash 代码量开始变庞大的时候，应该考虑换用其他较正式的语言编写。
+
 ## 概述
 
-`Shell` 在接收到命令后，将以空格把命令分割成一个个 `token`，并对每个 `token` 执行**扩展(glob)**。扩展之后，才根据结果来进行命令的实际执行。
+`bash` 在接收到命令后，将以空格把命令分割成一个个 `token`，并对每个 `token` 执行**扩展(glob)**。扩展之后，才根据结果来进行命令的实际执行。这里的扩展只执行一次，也就是说如果扩展后的结果还有一些特殊的 `$`, `*` 符号，bash 是不会递归扩展他们的，这样太复杂。
 
 扩展可以是：
 
@@ -13,7 +19,7 @@
 
 扩展的行为可以用过 `shopt` 命令来控制。
 
-## 扩展
+## 扩展(expansion)
 
 ### 针对特殊字符的单纯替换
 
@@ -93,7 +99,7 @@ echo {c..a} # c b a
 - @(pattern-list)：只匹配一次模式。
 - !(pattern-list)：匹配给定模式以外的任何内容。
 
-## 基于 shell 变量的扩展
+## 基于 $ 的扩展
 
 `$` 开头类型的 `token` 将被匹配为 bash 的一类特殊模式，有 shell 变量、命令、甚至运算。
 
@@ -108,6 +114,71 @@ echo $SHELL # echo /bin/bash
 ```sh
 echo \$date # $date
 ```
+
+### command substitution
+
+```bash
+$ echo 'Hello world.' > hello.txt
+$ cat hello.txt
+Hello world.
+$ echo "The file <hello.txt> contains: $(cat hello.txt)"
+The file <hello.txt> contains: Hello world.
+```
+
+`$()` 将被替换为括号内部的命令的标准输出结果。
+
+## 重定向(Redirection)
+
+### 文件描述符
+
+- input: 0
+- standard ouput: 1
+- error output: 2
+
+### 描述符的继承与传递
+
+1. 命令的描述符继承自 bash，即默认输入 0 为 keyboard, 输出 1 和 2 为 terminal display；
+2. 命令之间通过管道 `|` 传递描述符。
+
+### 更多有用的描述符使用
+
+```bash
+# exec 空命令，可以用于更改描述符
+# 3>&1: 由于 fd3 不存在，所以创建了描述符 3，并将其指向标准输出 1
+# >mylog: 将 fd1 指向 mylog
+exec 3>&1 >mylog # fd1:mylog fd2:terminal fd3:terminal
+echo moo
+# 3>&- 用于关闭 fd3. `>&-` 用于关闭输出符。
+# 而 `<&-0` 用于关闭输入符，它很少被用到。
+exec 1>&3 3>&-
+```
+
+```bash
+ping 127.0.0.1 &>results # &>results 等价于将 fd1 和 fd2 都指向 results: >results 2>&1
+```
+
+```bash
+echo Hello >~/world
+echo World >>~/world # appending 符号 `>>` 将在末尾添加而非覆写，用于在避免覆写文件内容
+echo World &>>~/world # &> 的 appending 版本
+```
+
+```bash
+# <<<"..\n allowed..." 将后方字符串作为 fd0 的输入。
+cat <<<"Hello world.
+Since I started learning bash, you suddenly seem so much bigger than you were before."
+```
+
+```bash
+# 打开 fd5，该文件描述符同时读（如果对方给了输出）和写对方。常用于网络。
+exec 5<>/dev/tcp/ifconfig.me/80
+echo "GET /ip HTTP/1.1
+Host: ifconfig.me
+" >&5
+cat <&5
+```
+
+需要保持明白的是，一个程序可以同时持有多个文件描述符，但是同一时间最多只有 2 个描述符在工作，即一个输入和一个输出。
 
 ## 其他必要知识
 
