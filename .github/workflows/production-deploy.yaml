@@ -3,43 +3,48 @@ name: 构建并部署到 Netlify
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 
-env:
-  STORE_PATH: ''
+permissions:
+  contents: read
 
 concurrency:
-  group: ${{ github.ref }}
+  group: deploy-netlify-${{ github.ref }}
   cancel-in-progress: true
-  
+
+env:
+  STORE_PATH: ""
+
 jobs:
-  build:
-    name: 构建
+  build-and-deploy:
+    name: 构建并部署
     runs-on: ubuntu-22.04
     environment:
-      name: 正式 Production
+      name: Formal Production
+
     steps:
       - name: 签出代码
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-      - name: 安装 Node.js 21.x
+      - name: 安装 Node.js 24.x
         uses: actions/setup-node@v4
         with:
-          node-version: 21.x
+          node-version: 24.x
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: 安装依赖
         run: npm config set registry https://registry.npmjs.org && npm i --frozen-lockfile
+        # run: npm ci --no-audit --no-fund
 
       - name: 构建
         run: npm run build
 
-      - name: 安装 Netlify CLI
-        run: npm install -g netlify-cli
-
-      - name: 推送到 Netlify
+      - name: 部署到 Netlify
+        run: npx --yes netlify-cli deploy --dir=docs/.vitepress/dist --prod
         timeout-minutes: 10
-        run: netlify deploy --dir docs/.vitepress/dist --prod
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-
