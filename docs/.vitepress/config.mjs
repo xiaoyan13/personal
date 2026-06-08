@@ -1,5 +1,7 @@
 import { defineConfig } from "vitepress";
 import sidebar from "./sideBarData.json";
+import mathjax3 from "markdown-it-mathjax3";
+import { centerStandaloneImages } from "./rules/centerImages.mjs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -26,6 +28,9 @@ export default defineConfig({
       light: "github-light",
       dark: "one-dark-pro",
     },
-    config: (md) => {},
+    config: (md) => {
+      md.use(mathjax3); // 支持识别 latex
+      md.use(centerStandaloneImages); // 图片居中
+    },
   },
 });
