@@ -13,12 +13,14 @@
  *      ✘ 不处理：    这是图片 ![](a.png)   （同段落里还有文字）
  *
  * 2. HTML 图片  <img ... />
- *    当用户把 <img> 作为“独立的块级 HTML”书写——即它自成一行、被 markdown-it
- *    解析为一个 html_block，并且这个块里**只有这一个 <img> 标签**、没有被
- *    <div> 等其它元素包裹时，才算单独出现。
+ *    当 <img> 处于 html_block 的“顶层”——即它没有被 <div> 等其它元素包裹时，
+ *    才算单独出现。注意：markdown-it 把“连续不空行”的 HTML 合并成同一个
+ *    html_block，所以紧贴在 </div> 后面的 <img>（中间无空行）会和那个 div
+ *    同处一个块里；这里通过追踪标签嵌套深度来区分，只处理深度为 0 的 <img>。
  *      ✔ 会处理：    <img src="a.png" />
- *      ✘ 不处理：    <div><img src="a.png" /></div>   （被 div 包裹）
- *      ✘ 不处理：    文字 <img src="a.png"/> 文字       （行内夹在文字中间）
+ *      ✔ 会处理：    </div> 之后另起一行的 <img>（即使中间没有空行）
+ *      ✘ 不处理：    <div> ... <img src="a.png" /> ... </div>   （被 div 包裹）
+ *      ✘ 不处理：    文字 <img src="a.png"/> 文字                 （行内夹在文字中间）
  *
  * 实现方式：用一个 core ruler 扫描 token 流，**直接在符合条件的 <img> 上追加
  * 居中样式**（不套外层 div、不加 class），其余 token 一律保持不变。
@@ -52,9 +54,10 @@ export function centerStandaloneImages(md) {
       }
 
       // —— 情况二：用户手写的块级 <img> ——
-      // 自成一行的 HTML 会被解析成 html_block，内容就是这段原始 HTML 文本。
-      if (token.type === "html_block" && isStandaloneImgHtml(token.content)) {
-        token.content = injectImgStyle(token.content.trim());
+      // 自成一行的 HTML 会被解析成 html_block。一个 html_block 里可能既有被
+      // <div> 包裹的图片，又有顶层的独立图片，所以要逐标签扫描、只居中顶层的。
+      if (token.type === "html_block") {
+        token.content = centerTopLevelImgs(token.content);
       }
     }
   });
@@ -104,11 +107,38 @@ function isStandaloneImageInline(inlineToken) {
 }
 
 /**
- * 判断一段 html_block 文本是否“只有一个 <img> 标签”。
- * 用于区分单独的 <img> 与被 <div> 等包裹的 <img>。
+ * 扫描一段 html_block 文本，给其中**顶层**（未被其它元素包裹）的 <img> 追加
+ * 居中样式；嵌套在 <div> 等元素里的 <img> 保持不动。
+ *
+ * 做法：从左到右遍历所有标签，用 depth 记录当前嵌套深度——
+ *   - 闭合标签 </x>：depth--
+ *   - 开始标签 <x>（非自闭合、非空元素如 img/br）：depth++
+ * 当遇到一个 <img> 且此刻 depth === 0 时，说明它处于顶层，居中之。
  */
-function isStandaloneImgHtml(content) {
-  return isSingleImgTag(content.trim());
+const VOID_TAGS = new Set([
+  "img", "br", "hr", "input", "meta", "link",
+  "area", "base", "col", "embed", "source", "track", "wbr",
+]);
+
+function centerTopLevelImgs(html) {
+  let depth = 0;
+  return html.replace(/<\/?[a-zA-Z][^>]*>/g, (tag) => {
+    const isClosing = tag.startsWith("</");
+    const name = (tag.match(/^<\/?\s*([a-zA-Z][a-zA-Z0-9-]*)/)?.[1] || "").toLowerCase();
+    const selfClosing = /\/>\s*$/.test(tag);
+
+    if (isClosing) {
+      depth = Math.max(0, depth - 1);
+      return tag;
+    }
+    if (name === "img" && depth === 0) {
+      return injectImgStyle(tag.trim());
+    }
+    if (!VOID_TAGS.has(name) && !selfClosing) {
+      depth++;
+    }
+    return tag;
+  });
 }
 
 /** 整段文本恰好是单个 <img ...> 标签（自闭合或不自闭合均可），前后无其它内容。 */
